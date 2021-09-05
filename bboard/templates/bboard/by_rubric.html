@@ -2,10 +2,11 @@
 <html >
     <head>
         <meta charset="UTF-8">
-        <title> Главная :: Доска объявлений</titlе>
+        <title> {{ current_rubric.name }} .. Доска объявлений</titlе>
     </head>
     <body>
       <h1>Объявления</h1>
+      <h2>Рубрика: {{ current_rubric.name }}</h2>
       <div>
           <а hrеf="/bbоаrd/">Главная</а>
           {% for rubric in rubrics %}
@@ -16,8 +17,6 @@
       <div>
           <h2>{{ bb.title }}</h2>
           <р>{{ bb.content }}</р>
-          <p><a href="/bboard/{{ bb.rubric.pk }}/">
-          {{ bb.rubric.name }}</a><p>
           <р>{{ bb.puЬlished|date:"d.m.Y H:i:s" }} </р>
       </div>
       {% endfor %}
