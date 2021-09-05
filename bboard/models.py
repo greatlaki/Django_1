@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Bb(models.Model):
     rubric = models.ForeignKey('Rubric', null=True, on_delete=models.PROTECT, verbose_name='Рубрика')
     title = models.CharField(max_length=50, verbose_name='Товар')
@@ -12,7 +13,11 @@ class Bb(models.Model):
         verbose_name = 'Объявление'
         ordering = ['-published']
 
+
 class Rubric(models.Model):
+    def str(self):
+        return self.name
+
     name = models.CharField(max_length=20, db_index=True, verbose_name='Haзвaниe')
 
     class Meta:
