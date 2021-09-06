@@ -5,21 +5,18 @@
         <title> Главная: Доска объявлений</titlе>
     </head>
     <body>
-      <h1>Объявления</h1>
+      <h1>Добавление объявления</h1>
       <div>
           <а hrеf="{% url 'index' %}">Главная</а>
           {% for rubric in rubrics %}
-          <а href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</а>
+          <а href= "{% url 'by_rubric' rubric.pk %}">
+          {{ rubric.name }}</а>
           {% endfor %}
       </div>
-      {% for bb in bbs %}
-      <div>
-          <h2>{{ bb.title }}</h2>
-          <р>{{ bb.content }}</р>
-          <p><a href="/bboard/{{ bb.rubric.pk }}/">
-          {{ bb.rubric.name }}</a><p>
-          <р>{{ bb.published|date:"d.m.Y H:i:s" }} </р>
-      </div>
-      {% endfor %}
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Добавить">
+      </form>
     </body>
 </html>
