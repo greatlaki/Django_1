@@ -2,14 +2,14 @@
 <html >
     <head>
         <meta charset="UTF-8">
-        <title> Главная :: Доска объявлений</titlе>
+        <title> Главная: Доска объявлений</titlе>
     </head>
     <body>
       <h1>Объявления</h1>
       <div>
-          <а hrеf="/bbоаrd/">Главная</а>
+          <а hrеf="{% url 'index' %}">Главная</а>
           {% for rubric in rubrics %}
-          <а href= "/bboard/{{ rubric.pk }}/">{{ rubric.name }}</а>
+          <а href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</а>
           {% endfor %}
       </div>
       {% for bb in bbs %}
@@ -18,7 +18,7 @@
           <р>{{ bb.content }}</р>
           <p><a href="/bboard/{{ bb.rubric.pk }}/">
           {{ bb.rubric.name }}</a><p>
-          <р>{{ bb.puЬlished|date:"d.m.Y H:i:s" }} </р>
+          <р>{{ bb.published|date:"d.m.Y H:i:s" }} </р>
       </div>
       {% endfor %}
     </body>

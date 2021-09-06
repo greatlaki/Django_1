@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html >
-    <head>
+<head>
         <meta charset="UTF-8">
         <title> {{ current_rubric.name }} .. Доска объявлений</titlе>
     </head>
@@ -8,16 +8,16 @@
       <h1>Объявления</h1>
       <h2>Рубрика: {{ current_rubric.name }}</h2>
       <div>
-          <а hrеf="/bbоаrd/">Главная</а>
+          <а hrеf="{% url 'index' %}">Главная</а>
           {% for rubric in rubrics %}
-          <а href= "/bboard/{{ rubric.pk }}/">{{ rubric.name }}</а>
+          <а href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</а>
           {% endfor %}
       </div>
       {% for bb in bbs %}
       <div>
           <h2>{{ bb.title }}</h2>
           <р>{{ bb.content }}</р>
-          <р>{{ bb.puЬlished|date:"d.m.Y H:i:s" }} </р>
+          <р>{{ bb.published|date:"d.m.Y H:i:s" }} </р>
       </div>
       {% endfor %}
     </body>
