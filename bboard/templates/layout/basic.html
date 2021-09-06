@@ -7,14 +7,14 @@
     </head>
     <body>
       <header>
-          <h1>объявления</h1>
+          <h1>Объявления</h1>
       </header>
       <nav>
-          <а hrеf="{% url 'index' %}">Главная</а>
-          <а hrеf="{% url 'add' %}">Добавить</а>
+          <a href="{% url 'index' %}">Главная</a>
+          <a href="{% url 'add' %}">Добавить</a>
           {% for rubric in rubrics %}
-          <а href= "{% url 'by_rubric' rubric.pk %}">
-          {{ rubric.name }}</а>
+          <a href= "{% url 'by_rubric' rubric.pk %}">
+          {{ rubric.name }}</a>
           {% endfor %}
       </nav>
       <section>
